@@ -43,5 +43,4 @@ public class UserJobProfile {
     @NonNull
     private String cv_url;
 
-    
 }
