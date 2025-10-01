@@ -23,6 +23,7 @@ public class UniqueService {
             }
             uniqueSequence = uniqueSequence + sequence;
             uniqueSequence = uniqueSequence + suffix;
+            
             return uniqueSequence;
     }
 
