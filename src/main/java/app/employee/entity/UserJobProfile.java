@@ -1,4 +1,4 @@
-package app.entity.employee;
+package app.employee.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

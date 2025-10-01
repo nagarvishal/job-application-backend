@@ -1,5 +1,6 @@
-package app.controller.employee;
+package app.employee.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,21 +12,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.entity.employee.User;
+import app.employee.entity.User;
+import app.employee.service.UserService;
+import app.exceptions.*;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    
+
+    @Autowired
+    UserService userService;
+
     @PostMapping("/create")
     public ResponseEntity<?> registerUser(@RequestBody User user){
         try{
 
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+            this.userService.createUser(user);
+
+            return new ResponseEntity<>(new Message(0,"User Successfully Inserted"),HttpStatus.ACCEPTED);
 
         }catch(Exception e){
 
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new Message(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
 
         }
     }

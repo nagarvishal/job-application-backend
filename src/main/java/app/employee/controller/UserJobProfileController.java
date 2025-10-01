@@ -1,4 +1,4 @@
-package app.controller.employee;
+package app.employee.controller;
 
 public class UserJobProfileController {
     

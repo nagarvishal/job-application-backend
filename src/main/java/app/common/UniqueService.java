@@ -1,10 +1,7 @@
-package app.service.common;
+package app.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import app.entity.common.UniqueEntity;
-import app.repository.common.UniqueReposotiry;
 
 @Component
 public class UniqueService {

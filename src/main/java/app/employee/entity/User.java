@@ -1,4 +1,4 @@
-package app.entity.employee;
+package app.employee.entity;
 
 import java.util.List;
 
