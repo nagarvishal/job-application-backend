@@ -1,4 +1,4 @@
-package app.common;
+package app.common.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

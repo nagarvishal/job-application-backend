@@ -1,7 +1,10 @@
-package app.common;
+package app.common.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import app.common.entity.UniqueEntity;
+import app.common.repository.UniqueReposotiry;
 
 @Component
 public class UniqueService {
@@ -20,7 +23,7 @@ public class UniqueService {
             }
             uniqueSequence = uniqueSequence + sequence;
             uniqueSequence = uniqueSequence + suffix;
-            return "";
+            return uniqueSequence;
     }
 
     public void setUniqueEntiry(UniqueEntity uniqueEntity){

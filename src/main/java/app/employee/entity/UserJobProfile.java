@@ -1,5 +1,6 @@
 package app.employee.entity;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.mongodb.lang.NonNull;
@@ -7,6 +8,7 @@ import com.mongodb.lang.NonNull;
 @Document(collection = "in_user_profile")
 public class UserJobProfile {
 
+    @Indexed(unique = true)
     @NonNull
     private String job_id;
 
