@@ -1,9 +1,7 @@
 package app.entity.employee;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.mongodb.lang.NonNull;
@@ -11,7 +9,6 @@ import com.mongodb.lang.NonNull;
 @Document(collection = "in_user")
 public class User {
 
-    @Id
     @NonNull
     private String user_id;
 
@@ -24,7 +21,8 @@ public class User {
     @NonNull
     private String password;
 
-    private List<String> roles = new ArrayList<>();
+    private List<String> roles;
+    
     
 
 }

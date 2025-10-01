@@ -4,9 +4,9 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import app.entity.employee.UserJobProfile;
+import app.entity.employee.User;
 
 @Repository
-public interface UserRepository extends MongoRepository<UserJobProfile,ObjectId> {
+public interface UserRepository extends MongoRepository<User,ObjectId> {
 
 }
