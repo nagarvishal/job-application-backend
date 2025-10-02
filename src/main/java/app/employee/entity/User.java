@@ -3,6 +3,8 @@ package app.employee.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,6 +12,9 @@ import com.mongodb.lang.NonNull;
 
 @Document(collection = "in_user")
 public class User {
+
+    @Id
+    private ObjectId id;
 
     @Indexed(unique = true)
     @NonNull
@@ -27,6 +32,9 @@ public class User {
 
     private List<String> roles = new ArrayList<>();
 
+    public void setId(ObjectId id){
+        this.id = id;
+    }
     public void setUser_id(String user_id){
         this.user_id = user_id;
     }
@@ -57,6 +65,10 @@ public class User {
         }
     }
 
+    public ObjectId getId(){
+        return this.id;
+    }
+    
     public String getUser_id(){
         return this.user_id;
     }

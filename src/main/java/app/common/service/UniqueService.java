@@ -13,7 +13,11 @@ public class UniqueService {
     UniqueReposotiry UniqueReposotiry;
 
     public String generateUniqueNumber(String prefix,String suffix, String id){
+
             UniqueEntity unique =  this.UniqueReposotiry.findByColumn(id);
+            
+            System.out.println(unique);
+            
 
             String sequence = Integer.toString(unique.getSequence_no());
             String uniqueSequence = "";
@@ -23,7 +27,14 @@ public class UniqueService {
             }
             uniqueSequence = uniqueSequence + sequence;
             uniqueSequence = uniqueSequence + suffix;
-            
+
+            sequence = sequence + 1;
+
+            unique.setSequence_no(unique.getSequence_no()+1);
+
+
+            this.UniqueReposotiry.save(unique);
+
             return uniqueSequence;
     }
 

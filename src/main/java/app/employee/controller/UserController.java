@@ -38,19 +38,5 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{user_id}")
-    public void getUser(@PathVariable String user_id){
-
-    }
-
-    @PutMapping("/{user_id}")
-    public void updateUser(@PathVariable String user_id, @RequestBody User user){
-
-    }
-
-    @DeleteMapping("/{user_id}")
-    public void deleteUser(@PathVariable String user_id){
-          
-    }
 
 }
