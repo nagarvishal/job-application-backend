@@ -4,10 +4,9 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import app.employee.entity.User;
+import app.employee.entity.UserProfile;
 
 @Repository
-public interface UserRepository extends MongoRepository<User,ObjectId> {
-    User findByEmail(String email);
-    void deleteByEmail(String email);
+public interface UserProfileRepository extends MongoRepository<UserProfile,ObjectId> {
+    
 }
