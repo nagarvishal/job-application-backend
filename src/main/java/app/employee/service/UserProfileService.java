@@ -14,16 +14,25 @@ public class UserProfileService {
     UserProfileRepository userProfileRepository;
     
     public void addProfile(UserProfile userprofile, String userid){
-        userprofile.setUser_id(userid);
+        
+        userprofile.setUserId(userid);
 
         this.userProfileRepository.save(userprofile);
         
     }
 
-    public void getProfile(String userid){
-        
+    public UserProfile getProfile(String userid){
+        return this.userProfileRepository.findByUserId(userid);
     }
 
-    
+    public void updateProfile(String userid, UserProfile userprofile){
+
+    }
+
+    public void deleteProfile(String userid){
+
+    }
+
+
 
 }

@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = this.userService.findByEmail(email);
         if(user!=null){
             UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
-                                      .username(user.getEmail())
+                                      .username(user.getUserId())
                                       .password(user.getPassword())
                                       .roles("USER")
                                       .build();

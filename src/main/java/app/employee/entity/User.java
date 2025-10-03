@@ -7,6 +7,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.mongodb.lang.NonNull;
 
@@ -18,7 +19,8 @@ public class User {
 
     @Indexed(unique = true)
     @NonNull
-    private String user_id;
+    @Field("user_id")   // maps to MongoDB snake_case
+    private String userId;
 
     @NonNull
     private String username;
@@ -35,8 +37,8 @@ public class User {
     public void setId(ObjectId id){
         this.id = id;
     }
-    public void setUser_id(String user_id){
-        this.user_id = user_id;
+    public void setUserId(String userId){
+        this.userId = userId;
     }
 
     public void setUsername(String username){
@@ -69,8 +71,8 @@ public class User {
         return this.id;
     }
     
-    public String getUser_id(){
-        return this.user_id;
+    public String getUserId(){
+        return this.userId;
     }
 
     public String getUsername(){

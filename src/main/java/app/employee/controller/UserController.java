@@ -44,9 +44,9 @@ public class UserController {
         try{
             Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
 
-            String email = authentication.getName();
+            String user_id = authentication.getName();
 
-            this.userService.updateUser(email, user);
+            this.userService.updateUser(user_id, user);
 
             return new ResponseEntity<>("User Update Succeesfully",HttpStatus.OK);
 
@@ -61,8 +61,8 @@ public class UserController {
     public ResponseEntity<?> deleteUser(){
         try{
             Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
-            String email = authentication.getName();
-            this.userService.deleteUser(email);
+            String user_id = authentication.getName();
+            this.userService.deleteUser(user_id);
             return new ResponseEntity<>("User Update Succeesfully",HttpStatus.OK);
 
         }catch(Exception e){

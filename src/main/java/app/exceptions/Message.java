@@ -1,14 +1,20 @@
 package app.exceptions;
 
-public class Message {
+public class Message <T> {
 
     private Integer status;
     private String txt;
-    private Object data;
+    private T data;
 
     public Message(Integer status, String txt){
         this.status = status;
         this.txt = txt;
+    }
+
+    public Message(Integer status, String txt, T Data){
+        this.status = status;
+        this.txt = txt;
+        this.data = Data;
     }
 
     public void setStatus(Integer status){
@@ -17,7 +23,7 @@ public class Message {
     public void setTxt(String txt){
         this.txt = txt;
     }
-    public void setData(Object data){
+    public void setData(T data){
         this.data = data;
     }
 

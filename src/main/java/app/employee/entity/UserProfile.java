@@ -3,6 +3,7 @@ package app.employee.entity;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.mongodb.lang.NonNull;
 
@@ -20,12 +21,13 @@ public class UserProfile {
 
     @NonNull
     @Indexed(unique = true)
-    private String user_id;
-    public void setUser_id(String user_id){
-        this.user_id = user_id;
+    @Field("user_id")
+    private String userId;
+    public void setUserId(String userId){
+        this.userId = userId;
     }
-    public String getUser_id(){
-        return this.user_id;
+    public String getUserId(){
+        return this.userId;
     }
 
     @NonNull

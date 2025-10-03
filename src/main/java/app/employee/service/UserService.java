@@ -28,15 +28,15 @@ public class UserService {
 
         String uniqueId = this.uniqueService.generateUniqueNumber("UI", "", "user_id");
         System.out.println(uniqueId);
-        user.setUser_id(uniqueId);
+        user.setUserId(uniqueId);
         user.setPassword(UserService.passwordEncoder.encode(user.getPassword()));
         user.setRoles("EMPLOYEE");
         this.userRepository.save(user); 
     }
 
-    public void updateUser(String email, User user){
+    public void updateUser(String user_id, User user){
 
-        User dbUser = this.findByEmail(email);
+        User dbUser = this.findByEmail(user_id);
         if(dbUser != null){
             dbUser.setEmail((user.getEmail()!=null && !user.getEmail().equals(""))?user.getEmail() : dbUser.getEmail());
             dbUser.setPassword((user.getPassword()!=null && !user.getPassword().equals(""))?UserService.passwordEncoder.encode(user.getPassword()) : dbUser.getPassword());
@@ -45,10 +45,11 @@ public class UserService {
         }
     }
 
-    public void deleteUser(String email){
-        
-        this.userRepository.deleteByEmail(email);
-
+    public User findByUserId(String userid){
+        return this.userRepository.findByUserId(userid);
+    }
+    public void deleteUser(String userid){
+        this.userRepository.deleteByUserId(userid);
     }
 
     public User findByEmail(String email){
