@@ -17,6 +17,9 @@ public class UserProfileService {
         
         userprofile.setUserId(userid);
 
+        System.out.println(userid);
+        System.out.println(userprofile);
+
         this.userProfileRepository.save(userprofile);
         
     }
@@ -32,7 +35,4 @@ public class UserProfileService {
     public void deleteProfile(String userid){
 
     }
-
-
-
 }

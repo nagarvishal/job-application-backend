@@ -24,7 +24,7 @@ public class SpringSecurity {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-http.authenticationProvider(authenticationProvider());
+        http.authenticationProvider(authenticationProvider());
 
         http
                 .authorizeHttpRequests(authorize -> authorize

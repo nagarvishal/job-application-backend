@@ -3,10 +3,12 @@ package app.employee.entity;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.mongodb.lang.NonNull;
 
+@Document(collection = "in_user_profile")
 public class UserProfile {
     
     @Id
@@ -18,6 +20,18 @@ public class UserProfile {
     public ObjectId getId(){
         return this.id;
     }
+
+    @NonNull
+    @Indexed(unique = true)
+    @Field("profile_id")
+    private String profileId;
+    public void setProfileId(String profileid){
+        this.profileId = profileid;
+    }
+    public String getProfileId(){
+        return this.profileId;
+    }
+
 
     @NonNull
     @Indexed(unique = true)
@@ -49,13 +63,33 @@ public class UserProfile {
     }
 
     @NonNull
-    private String location;
-    public void setLocation(String location){
-        this.location = location;
+    private String city;
+    public void setCity(String city){
+        this.city = city;
     }
     public String getLocation(){
-        return this.location;
+        return this.city;
     }
+
+    @NonNull
+    private String state;
+    public void setState(String state){
+        this.state = state;
+    }
+    public String getState(){
+        return this.state;
+    }
+
+    @NonNull
+    private String country;
+    public void setCountry(String country){
+        this.country = country;
+    }
+    public String getCountry(){
+        return this.country;
+    }
+    
+
 
 
     @NonNull

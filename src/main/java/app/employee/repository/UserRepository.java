@@ -9,6 +9,7 @@ import app.employee.entity.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User,ObjectId> {
+    
     User findByEmail(String email);
     void deleteByEmail(String email);
     User findByUserId(String userId);

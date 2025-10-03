@@ -1,6 +1,6 @@
 package app.employee.controller;
 
-import org.apache.catalina.connector.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,18 +19,20 @@ import app.employee.service.UserProfileService;
 import app.exceptions.Message;
 
 @RestController
-@RequestMapping("/user/profile")
+@RequestMapping("/user")
 public class UserProfileController {
 
     @Autowired
     UserProfileService userProfileService;
 
-    @PostMapping("/add")
+    @PostMapping("/profile/add")
     public ResponseEntity<?> addProfile(@RequestBody UserProfile userProfile){
         try{
             Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
 
             String user_id = authentication.getName();
+            
+            System.out.println(user_id);
 
             this.userProfileService.addProfile(userProfile, user_id);
 
@@ -40,7 +42,7 @@ public class UserProfileController {
         }
     }
 
-    @GetMapping("/get")
+    @GetMapping("/profile/get")
     public ResponseEntity<?> getProfile(){
         try{
             Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
@@ -58,7 +60,7 @@ public class UserProfileController {
         }
     }
 
-    @PutMapping("/update")
+    @PutMapping("/profile/update")
     public ResponseEntity<?> updateProfile(){
         try{
             return null;
@@ -67,7 +69,7 @@ public class UserProfileController {
         }
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/profile/delete")
     public ResponseEntity<?> deleteProfile(){
         try{
             return null;

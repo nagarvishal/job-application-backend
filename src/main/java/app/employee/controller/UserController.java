@@ -30,11 +30,11 @@ public class UserController {
 
             this.userService.createUser(user);
 
-            return new ResponseEntity<>(new Message(0,"User Successfully Inserted"),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(new Message<>(0,"User Successfully Inserted"),HttpStatus.ACCEPTED);
 
         }catch(Exception e){
 
-            return new ResponseEntity<>(new Message(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new Message<>(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
 
         }
     }
@@ -52,7 +52,7 @@ public class UserController {
 
         }catch(Exception e){
 
-            return new ResponseEntity<>(new Message(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new Message<>(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
 
         }
     }
@@ -66,7 +66,7 @@ public class UserController {
             return new ResponseEntity<>("User Update Succeesfully",HttpStatus.OK);
 
         }catch(Exception e){
-            return new ResponseEntity<>(new Message(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new Message<>(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
