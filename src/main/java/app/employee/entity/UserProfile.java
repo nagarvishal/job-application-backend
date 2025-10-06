@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.mongodb.lang.NonNull;
+import lombok.NonNull;
 
 @Document(collection = "in_user_profile")
 public class UserProfile {
@@ -67,7 +67,7 @@ public class UserProfile {
     public void setCity(String city){
         this.city = city;
     }
-    public String getLocation(){
+    public String getCity(){
         return this.city;
     }
 
@@ -136,5 +136,13 @@ public class UserProfile {
     }
     public String getDesired_location(){
         return this.desired_location;
+    }
+
+    private String currentorganization;
+    public void setCurrentorganization(String currentorganization){
+        this.currentorganization = currentorganization;
+    }
+    public String getCurrentorganization(){
+        return this.currentorganization;
     }
 }

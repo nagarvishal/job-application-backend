@@ -2,6 +2,7 @@ package app.employee.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -32,6 +33,24 @@ public class UserService {
         user.setPassword(UserService.passwordEncoder.encode(user.getPassword()));
         user.setRoles("EMPLOYEE");
         this.userRepository.save(user); 
+    }
+
+    public User fetchUser(String email, String password){
+        User dbUser = this.findByEmail(email);
+        if(dbUser!=null){
+
+            String dbPassword = dbUser.getPassword();
+
+            if(UserService.passwordEncoder.matches(password, dbPassword)){
+                
+                return dbUser;
+                
+            }
+            else{
+                throw new UsernameNotFoundException("Given Password is incorrent");
+            }
+        }
+        throw new UsernameNotFoundException("User Not Found");
     }
 
     public void updateUser(String user_id, User user){

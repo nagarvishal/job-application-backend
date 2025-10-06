@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.mongodb.lang.NonNull;
+import lombok.NonNull;
 
 @Document(collection = "in_user")
 public class User {

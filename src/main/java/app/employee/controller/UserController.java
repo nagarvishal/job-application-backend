@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,21 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @PostMapping("/fetch")
+    public ResponseEntity<?> getUser(@RequestBody User user){
+        try{
+
+            User dbUser = this.userService.fetchUser(user.getEmail(), user.getPassword());
+
+            return new ResponseEntity<>(new Message<User>( 0, "User Data", dbUser),HttpStatus.ACCEPTED);
+
+        }catch(Exception e){
+
+            return new ResponseEntity<>(new Message<>(-102,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
+
+        }
+    }
 
     @PostMapping("/create")
     public ResponseEntity<?> registerUser(@RequestBody User user){
