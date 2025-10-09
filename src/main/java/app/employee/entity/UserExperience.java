@@ -48,6 +48,9 @@ public class UserExperience {
     @Field("end_date")
     private LocalDate endDate;
 
+    @Field("currently_working")
+    private Boolean currentlyWorking;
+
     @NonNull
     private String description;
 
