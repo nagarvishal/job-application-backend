@@ -74,5 +74,7 @@ public class UserService {
     public User findByEmail(String email){
         return this.userRepository.findByEmail(email);
     }
+
+    
     
 }

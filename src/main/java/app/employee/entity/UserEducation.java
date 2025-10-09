@@ -18,13 +18,17 @@ public class UserEducation {
 
     @Id
     private ObjectId id;
+
+    @NonNull
+    @Field("user_id")
+    private String userId = "";
     
     @NonNull
     @Field("education_id")
-    private String educationId;
+    private String educationId = "";
 
     @NonNull
-    private String degree;
+    private String degree = "";
 
     @NonNull
     @Field("institute_name")
@@ -39,18 +43,18 @@ public class UserEducation {
 
     @NonNull
     @Field("created_by")
-    private String createdBy;
+    private String createdBy = "";
 
     @NonNull
     @Field("updated_by")
-    private String updatedBy;
+    private String updatedBy = "";
 
-    @NonNull
+    
     @Field("created_at")
     private Instant createdAt;
 
     @NonNull
     @Field("updated_at")
-    private Instant updatedAt;
+    private Instant updatedAt = Instant.now();
 
 }
