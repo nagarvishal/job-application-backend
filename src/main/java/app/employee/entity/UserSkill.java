@@ -18,30 +18,38 @@ public class UserSkill {
     private ObjectId id;
 
     @NonNull
-    @Field("skill_name")
-    private String skillName;
+    @Field("user_id")
+    private String userId = "";
 
     @NonNull
+    @Field("skill_id")
+    private String skillId = "";
+
+    @NonNull
+    @Field("skill_name")
+    private String skillName = "";
+
+    
     @Field("profeciency_level")
     private String profeciencyLevel;
 
-    @NonNull
+    
     @Field("years_of_experience")
-    private String yearOfExperience;
+    private Integer yearOfExperience;
 
-    @NonNull
+    
     @Field("created_by")
     private String createdBy;
 
-    @NonNull
+    
     @Field("updated_by")
     private String updatedBy;
 
-    @NonNull
+    
     @Field("created_at")
     private Instant createdAt;
 
-    @NonNull
+    
     @Field("updated_at")
     private Instant updatedAt;
 }
