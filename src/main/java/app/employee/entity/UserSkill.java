@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.Data;
 import lombok.NonNull;
 
-@Document(collection = "in_experience")
+@Document(collection = "in_skills")
 @Data
 public class UserSkill {
 
@@ -31,7 +31,7 @@ public class UserSkill {
 
     
     @Field("profeciency_level")
-    private String profeciencyLevel;
+    private Integer profeciencyLevel;
 
     
     @Field("years_of_experience")

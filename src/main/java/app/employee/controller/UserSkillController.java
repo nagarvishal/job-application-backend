@@ -1,5 +1,7 @@
 package app.employee.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,11 @@ public class UserSkillController {
     @GetMapping("/get")
     public ResponseEntity<?> getUserSkill(){
         try{
-            return null;
+            
+            List<UserSkill> userSkills = this.userSkillService.getSkill();
+
+            return new ResponseEntity<>(new Message<List<UserSkill>>(0,"User Skills Data",userSkills),HttpStatus.OK);
+
         }catch(Exception e){
 
             return new ResponseEntity<>(new Message<User>( 0,e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);

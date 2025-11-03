@@ -14,8 +14,8 @@ import lombok.NonNull;
 @Document(collection = "in_user")
 public class User {
 
-    @Id
-    private ObjectId id;
+        @Id
+        private ObjectId id;
 
     @Indexed(unique = true)
     @NonNull
@@ -31,6 +31,15 @@ public class User {
 
     @NonNull
     private String password;
+
+    @Field("company_id")
+    private String companyId;
+    public void setCompanyId(String compnay_id){
+        this.companyId = compnay_id;
+    }
+    public String getCompanyId(){
+        return this.companyId;
+    }
 
     private List<String> roles = new ArrayList<>();
 
